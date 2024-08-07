@@ -8,9 +8,9 @@ context('Search Properties', () => {
   })
   const text1 = 'properties found'
   const text2 = 'property found'
-  
+
   const propertyfound = new RegExp(`${text1}|${text2}`)  // build regex from variables
- 
+
   describe('Search properties - MidlandHeart', () => {
     beforeEach(() => {
       cy.visit(Cypress.config('baseUrl'));
@@ -31,13 +31,14 @@ context('Search Properties', () => {
         .should('have.attr', 'aria-valuetext', '200') // Sets the price range to 200
       cy.get('[id="MidlandHeartWeb_Theme_wt241_block_OutSystemsUIWeb_wt2_block_wtContent_wtFooter_OutSystemsUIWeb_wtMobileFiltersSidebar_block_wtContent_OutSystemsUIWeb_wt193_block_wtColumn2_wt353"]').click(); // Clicks Apply Filters
       cy.contains(propertyfound).should('exist'); // properties found
-    
+
 
     })
     it('verify results in the search page', () => {
-     cy.visit('https://homes.midlandheart.org.uk/Searching.aspx');
-      cy.get('[id="MidlandHeartWeb_Theme_wt38_block_OutSystemsUIWeb_wt2_block_wtContent_wtMainContent_OutSystemsUIWeb_wt50_block_wtContent_OutSystemsUIWeb_wt6_block_wtInput"]').find('input').type('B1{enter}', { force: true }); // search for 'B1'
       
+      cy.visit('https://homes.midlandheart.org.uk/Searching.aspx');
+      cy.get('[id="MidlandHeartWeb_Theme_wt38_block_OutSystemsUIWeb_wt2_block_wtContent_wtMainContent_OutSystemsUIWeb_wt50_block_wtContent_OutSystemsUIWeb_wt6_block_wtInput"]').find('input').type('B1{enter}', { force: true }); // search for 'B1'
+
       cy.get('[id="MidlandHeartWeb_Theme_wt241_block_OutSystemsUIWeb_wt2_block_wtContent_wtSubHeader_OutSystemsUIWeb_wt80_block_wtColumn2_WebPatterns_wt369_block_wtCell1"]').click(); // Clicks the filter
       cy.get('[id="MidlandHeartWeb_Theme_wt241_block_OutSystemsUIWeb_wt2_block_wtContent_wtFooter_OutSystemsUIWeb_wtMobileFiltersSidebar_block_wtContent_OutSystemsUIWeb_wt213_block_wtButtonDropdownWrapper"]').click(); // clicks distance dropdown
       cy.get('[class="margin-left-s text-neutral-10"]').eq(3).click({ force: true }); //Clicks 10 miles
@@ -50,7 +51,7 @@ context('Search Properties', () => {
         .should('have.attr', 'aria-valuetext', '200') // Sets the price range to 200
       cy.get('[id="MidlandHeartWeb_Theme_wt241_block_OutSystemsUIWeb_wt2_block_wtContent_wtFooter_OutSystemsUIWeb_wtMobileFiltersSidebar_block_wtContent_OutSystemsUIWeb_wt193_block_wtColumn2_wt353"]').click(); // Clicks Apply Filters
       cy.contains(propertyfound).should('exist'); // properties found
-    
+
 
     })
   })
