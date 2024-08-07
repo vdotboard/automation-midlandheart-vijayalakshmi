@@ -35,7 +35,7 @@ context('Search Properties', () => {
 
     })
     it('verify results in the search page', () => {
-      
+
       cy.visit('https://homes.midlandheart.org.uk/Searching.aspx');
       cy.get('[id="MidlandHeartWeb_Theme_wt38_block_OutSystemsUIWeb_wt2_block_wtContent_wtMainContent_OutSystemsUIWeb_wt50_block_wtContent_OutSystemsUIWeb_wt6_block_wtInput"]').find('input').type('B1{enter}', { force: true }); // search for 'B1'
 
